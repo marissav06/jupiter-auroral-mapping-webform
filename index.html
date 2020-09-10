@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title>Jupiter Ionosphere/Magnetosphere Online Mapping Tool - Beta Version</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="layout.css" type="text/css" media="screen" />
+</head>
+<body>
+
+<div id="logo"><object data="mapping_website_logo_small.jpg"><img src="mapping_website_logo_small.jpg" 
+alt="Mapping 
+Schematic" /></object></div>
+
+<h2>Jupiter Ionosphere/Magnetosphere <br>Online Mapping Tool</h2>
+
+<p>Welcome and thank you for your interest in our Jupiter Ionosphere/Magnetosphere Online Mapping Tool. This tool allows users to magnetically map a 
+given point in Jupiter's ionosphere to the magnetosphere (and vice versa). </p>
+
+<p>
+---
+<p><b>2020 updates:</b> <p>
+May 2020 update: I have recently made some minor changes to my CAN (Connerney et al. 1981) current sheet code, which affects all mapping options except those using the Khurana model. The expected changes in mapping results should be very minor (a few RJ, fraction of an hour LT, or a fraction of a degree in lat/lon). All mapping options except JRM09 use the CAN current sheet model with the VIP4 dipole values (tilt/longitude). The JRM09 flux mapping and field line tracing options use the CAN sheet with the JRM09 dipole values. <b>All information on this page, including the webform results and the downloadable figures and zip files, have been updated accordingly.</b>
+
+<p><b>2019 updates:</b> <p>
+
+March 2019 update: An IDL function that provides mapping results is now available.<p>
+Recent updates to the mapping function include:<br>
+* Adding the JRM09 internal field model as an option for the flux calculation mapping (<a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2018GL077312">Connerney et al., 2018</a>)<br>
+* Adding the option for the user to map a point between the magnetosphere and the ionosphere using the Vogt et al. flux calculation <br>or</b> by tracing field lines from a global field model (including the Khurana model).<br>
+* Mapping is now calculated for the flattened Jovian surface instead of a constant sphere with radius 0.95 Rj.<br>
+* (June 2019) Added an option to use the Khurana model with JRM09 (instead of VIP4) as the internal field.<br>
+* (June 2019) Fixed an error with the local time mapping that affected the fieldline tracing option.
+<p>
+If you would like to download the most recent mapping function (May 2020) please provide your name and email address and a download link will be emailed to you.
+<form action="mapping_function_signup.php" method="post">
+    <fieldset>
+        <p><label for="username">Name:</label><input type="text" name="username" id="username" /><br></p>
+        <p><label for="email_contact">E-mail:</label><input type="text" name="email_contact" id="email_contact" /></p>
+        <p class="submit"><input type="submit" value="Submit" /></p>
+        
+    </fieldset>
+</form>
+
+
+<p><b>May 2019 update:</b> <br>
+<b>PDF figures and text files containing the mapping contours are now available!</b><p>
+
+These files are meant to help users interpret the results of the IDL mapping function and use the mapping results in creating their own figures or other analysis.<p>
+
+For each model/hemisphere/mapping type, two figures are available:<br>
+<ul>
+    <li><b>"Fixed"</b>: These figures are drawn fixed in System III. In the north, subsolar longitude 180 degrees points to the bottom of the page and 90 degrees points to the right. For the south, 0 degrees longitude points to the bottom of the page and 270 degrees points to the left. The local time mapping rotates with subsolar longitude.</li>
+    <li><b>"Rotating"</b>:" These figures show what a stationary observer would see as Jupiter rotates. These figures are drawn with the subsolar longitude (roughly noon local time) pointing to the bottom of the page in the north, and to the top of the page in the south. The contours rotate as the subsolar longitude changes. For all subsolar longitudes, local times dawn and dusk correspond to the left and right side of the figure, respectively.<p></li>
+</ul>
+<p>
+
+<table style="width:80%">
+    <tr>
+        <td><b>Mapping type<b></td>
+        <td><b>Fixed frame</b></td>
+        <td><b>Rotating frame</b></td>
+        <td><b>Contours text file</b></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, VIP4, north</td>
+        <td><a href="vogt_flux_mapping_contours_vip4_north_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vip4_north_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vip4_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, VIP4, south</td>
+        <td><a href="vogt_flux_mapping_contours_vip4_south_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vip4_south_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vip4_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, GAM, north</td>
+        <td><a href="vogt_flux_mapping_contours_gam_north_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_gam_north_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_gam_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, VIPAL, north</td>
+        <td><a href="vogt_flux_mapping_contours_vipal_north_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vipal_north_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vipal_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, VIPAL, south</td>
+        <td><a href="vogt_flux_mapping_contours_vipal_south_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vipal_south_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_vipal_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, JRM09, north</td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_north_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_north_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Vogt flux calculation, JRM09, south</td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_south_fixed.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_south_rotating.pdf">PDF</a></td>
+        <td><a href="vogt_flux_mapping_contours_jrm09_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, VIP4, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, VIP4, south</td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_south_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_south_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vip4_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, GAM, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_gam_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_gam_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_gam_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, VIPAL, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, VIPAL, south</td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_south_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_south_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_vipal_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, JRM09, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, JRM09, south</td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_south_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_south_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_jrm09_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, KK2009*, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, KK2009*, south</td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_south_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_south_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009_south.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, KK2009 with JRM09*, north</td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_north_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_north_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_north.zip">Zip file</a></td>
+    </tr>
+    <tr>
+        <td>Field line tracing, KK2009 with JRM09*, south</td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_south_fixed.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_south_rotating.pdf">PDF</a></td>
+        <td><a href="fieldline_tracing_mapping_contours_kk2009ext_jrm09int_south.zip">Zip file</a></td>
+    </tr>
+</table>
+<p>
+* The Khurana (KK2009) model uses VIP4 as the internal (planetary) field. The "KK2009 with JRM09" option uses the Khurana external field (current sheet, etc.) with JRM09 as the internal field.
+
+<p>
+Example figure (Vogt flux mapping approach in the northern hemisphere, using the JRM09 internal field model):<br>
+<img src="vogt_flux_jrm09_north_fixed.jpg" width=200 height=180>
+    <p>
+    
+In all figures, each colored line maps to a constant radial distance in the magnetosphere (jovigraphic equatorial plane). Contours are drawn in 5 Rj increments, starting with 15 Rj (outer dashed black line), then in solid lines from 20 Rj (black) to 150 Rj (red). Contours are not drawn when the mapped equatorial position is beyond the Joy et al. (2002) expanded magnetopause. For model fieldline tracing, contours are drawn only out to ~60-80 Rj in some cases because the field models give erroneous results at large radial distances. Small circles on each contour indicate the rough position mapping to midnight, dawn, noon, and dusk local times. Dawn and dusk are noted in the figures. All figures for the northern hemisphere are drawn from the perspective of an observer looking down on the north pole. Southern hemisphere figures are drawn from the perspective of an observer looking up at the south pole.<p>
+
+Each zip file contains 36 individual text files, one for each subsolar longitude, containing the latitude and longitude coordinates of the ionospheric contours. The columns are: magnetospheric radial distance (in Rj), magnetospheric local time (in hours), mapped/traced ionospheric latitude (in degrees), and mapped/traced ionospheric longitude (in degrees, SIII lefthanded).
+
+<p>
+----
+<p>If this is your first time using the mapping tool, we recommend that you read the <a href="#faq">Frequently Asked Questions</a> section at the
+bottom of this page.</p>
+
+<b>June 2019 updates:</b> The online mapping tool now provides flux mapping results with JRM09 and also provides fieldline tracing results. A name/email are now required so that users of this online tool can be updated when new features are added or other changes are made (i.e. bug fixes). 
+<p>
+
+<p><b>September 2014 updates:</b> There have been several recent updates to the online mapping tool. In July 2014 we added mapping results obtained with the flux equivalence calculation using VIP4 and VIPAL (see <a href="http://onlinelibrary.wiley.com/doi/10.1002/2014JA020729/abstract"><i>Vogt et al.</i> [2015]</a>). We have also recently corrected an error in the southern hemisphere mapping from <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>. Further details on these updates are provided in the <a href="#faq">FAQ</a> below.</p>
+
+Comments, questions, and other correspondence can be sent to <a href="mailto:marissav@ucla.edu">marissav@ucla.edu</a> or <a href="mailto:mvogt@bu.edu">mvogt@bu.edu</a>.
+
+<h3>Mapping Form</h3>
+<p>
+
+<form action="mapping_results_testing.php" method="post">
+<fieldset>
+
+<p><label for="mapping_type"><strong>What would you like to map?</strong></label>
+ <input type="radio" name="mapping_type" value="ionosphere" checked> Ionosphere to Magnetosphere<br />
+ <input type="radio" name="mapping_type" value="magnetosphere" /> Magnetosphere to Ionosphere</p>
+
+<p><label for="sslong"><strong>Subsolar longitude (System III left handed, in degrees):</strong></label><input type="text" id="sslong" name="sslong" /></p>
+<p></p>
+
+<br>
+
+<i><strong>For mapping magnetosphere to ionosphere:</strong></i><br>
+<p><label for="rj">Magnetospheric radial distance (in Jovian radii):</label> <input type="text" name="rj" id="rj" /><br /></p>
+<p><label for="loctime">Magnetospheric local time (in hours - use 12.0 for local noon, not 12:00):</label> <input type="text" name="loctime" id="loctime" /></p>
+<br>
+
+<i><strong>For mapping ionosphere to magnetosphere:</strong></i><br>
+<p><label for="latitude">Ionospheric latitude (System III, in degrees):</label> <input type="text" name="latitude" id="latitude" /><br /></p>
+<p><label for="longitude">Ionospheric longitude (System III left handed, in degrees):</label><input type="text" name="longitude" id="longitude"/></p>
+
+<p></p>
+<br>
+<strong>Please provide contact information (required) </strong><br>
+<p><label for="username">Name:</label><input type="text" name="username" id="username" /><br></p>
+<p><label for="email_contact">E-mail:</label><input type="text" name="email_contact" id="email_contact" /></p>
+<p>
+
+<input type="checkbox" name="send_updates" checked> I would like to receive e-mail updates about this online tool.<br>
+<input type="checkbox" name="send_results" checked> I would like the mapping results sent to me by e-mail.
+<p>
+<p class="submit"><input type="submit" value="Submit" /></p>
+
+</form>
+</fieldset>
+</form> 
+
+
+
+<p></p>
+<p>
+<h3>Example Mapping - Subsolar Longitude 180</h3><br>
+<center><img src="mapping_website_example_small.png"></center>
+<p>This figure shows mapping results for subsolar longitude 180, according to the model of <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>. The 
+outer dashed black line indicates the mapping of 15 Jovian radii, or the orbit of Ganymede. The colored contours indicate the mapping of constant radial 
+distance in the magnetosphere, every 10 Rj from 20 (black) to 150 (red). For reference, latitudes are labeled in blue and longitudes are 
+labeled in black. There is an error in the southern hemisphere mapping in this figure and in other figures published in <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>. This error has been corrected in the online mapping tool.</p>
+
+<p></p>
+<p></p>
+<div id="faq"<a name="faq"><h2>Frequently Asked Questions (Updated July 2014)</h2></a>
+
+<p><strong>How does the mapping model work?</strong><br>
+The mapping is done using a magnetic flux equivalence calculation, in which we assume that the flux through a given area in the ionosphere must equal the 
+flux through the region of the magnetosphere to which it maps. The model is described in detail in <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>.</p>
+
+<p><strong>How does this mapping tool work?</strong><br>
+The user provides a subsolar longitude and a position either in Jupiter's ionosphere or in Jupiter's magnetosphere. The form outputs the location to which 
+the point maps in the magnetosphere or ionosphere according to the model of <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>.<p>
+This tool does not perform the flux equivalence calculation in real time. Instead, it takes the user inputs and searches for the values in a 
+pre-calculated table. When necessary, we interpolate the coordinates in the table to match the precise user input.</p>
+
+<p><strong>Why does the mapping tool give me multiple sets of results?</strong><br>
+The <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a> mapping model uses a flux equivalence calculation to map points between the magnetosphere and the ionosphere. It requires a model for Jupiter's internal magnetic field to calculate the flux through the ionosphere.<br>
+There are three widely used models for Jupiter's internal magnetic field:
+<ul>
+<li>VIP4: <a href="http://onlinelibrary.wiley.com/doi/10.1029/97JA03726/abstract">Connerney, J. E. P., M. H. Acuña, N. F. Ness, and T. Satoh (1998), New models of Jupiter's magnetic field constrained by the Io flux tube footprint, J. Geophys. Res., 103(A6), 11929–11939, doi:10.1029/97JA03726.</a></li>
+<li>Grodent anomaly model: <a href="http://onlinelibrary.wiley.com/doi/10.1029/2008JA013185/abstract">Grodent, D., B. Bonfond, J.-C. Gérard, A. Radioti, J. Gustin, J. T. Clarke, J. Nichols, and J. E. P. Connerney (2008), Auroral evidence of a localized magnetic anomaly in Jupiter's northern hemisphere, J. Geophys. Res., 113, A09201, doi:10.1029/2008JA013185.</a></li>
+<li>VIPAL: <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016262/abstract">Hess, S. L. G., B. Bonfond, P. Zarka, and D. Grodent (2011), Model of the Jovian magnetic field topology constrained by the Io auroral emissions, J. Geophys. Res., 116, A05217, doi:10.1029/2010JA016262.</a></li>
+</ul>
+We present mapping results from the flux equivalence calculation using all three models. (Note however, that the Grodent anomaly model is only valid in the northern hemisphere.)
+
+<p><strong>How should I cite mappings from this website?</strong><br>
+When using the mapping results in a presentation or publication, please cite:
+<ul>
+    <li><a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract">Vogt, Marissa F., Margaret G. Kivelson, Krishan K. Khurana, Raymond J. Walker, Bertrand Bonfond, Denis Grodent, and Aikaterini Radioti (2011), Improved mapping of Jupiter’s auroral features to magnetospheric sources, <i>J. Geophys. Res.</i>, <i>116</i>, A03220, doi:10.1029/2010JA016148</a>.</li>
+</ul>
+If using mapping results with VIP4 in the northern hemisphere or VIPAL in either hemisphere, please cite our followup paper:
+<ul>
+    <li><a href="http://onlinelibrary.wiley.com/doi/10.1002/2014JA020729/abstract">Vogt, Marissa F., Emma J. Bunce, Margaret G. Kivelson, Krishan K. Khurana, Raymond J. Walker, Aikaterini Radioti, Bertrand Bonfond, and Denis Grodent (2015), Magnetosphere-ionosphere mapping at Jupiter: Quantifying the effects of using different internal field models,  <i>J. Geophys. Res. Space Physics</i>, doi:10.1002/2014JA020729, in press.</a></li>
+</ul>
+</p>
+
+<p><strong>Can I map more than one point at a time?</strong><br>
+Not at this time. If you're interested in mapping multiple points, please e-mail <a href="mailto:marissav@ucla.edu">marissav@ucla.edu</a> to obtain an IDL routine that performs this mapping.</p>
+
+<p><strong>What distances or local times can I map?</strong><br>
+For mapping from the magnetosphere to the ionosphere, you can map all local times and radial distances from 15 to 150 Rj.</p>
+
+<p><strong>Help! I'm getting an error message! <i>or</i> Help! The results I'm getting don't make any physical sense!</strong><br>
+Sorry about that :(<br>
+We recommend that you go back to the form and check that your inputs are in an appropriate format:<br>
+* Subsolar longitude should be in degrees (0-360)<br>
+* Magnetospheric radial distance should be in Jovian radii (15-150)<br>
+* Local time should be in hours (0.0 - 24.0)<br>
+* Ionospheric latitude should be in degrees (-90 to 90, with positive values for the northern hemisphere)<br>
+*Ionospheric longitude should be in degrees (0-360)<br>
+If that doesn't fix your problem, please e-mail <a href="mailto:marissav@ucla.edu">marissav@ucla.edu</a> with your inputs and error message. 
+</p>
+
+<p><strong>What is the subsolar longitude?</strong><br>
+The subsolar longitude is the longitude of local noon. It is similar to CML (Central Meridian Longitude), or the longitude in the Earth-Jupiter direction.
+</p>
+
+<p><strong>Why do I have to provide a subsolar longitude?</strong><br> 
+The flux equivalence calculation in our model includes the equatorial Bn, the component of the magnetic field normal to the current sheet, which is a 
+function of local time. Therefore the mapping depends on how the ionospheric region of interest is oriented with respect to the Sun, or local noon. The 
+effect of the orientation is familiar from images of the aurora at different CMLs (Central Meridian Longitudes).</p>
+
+<p><strong>What are the errors associated with this model?</strong><br>
+We have not quantified the errors at this time. However, we expect that the error in radial distance will be small (~few Rj) and that the largest error will 
+be in local time (up to ~1 hour). For more information, see <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>.</p>
+
+<p><strong>I used this website 6 months ago to map a point to/from the southern ionosphere, but now I am getting a different answer. Why?</strong><br>
+In August 2014 we discovered an error with the southern hemisphere mapping results published in <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>. We have corrected the error and the mapping tool provides corrected results. Further details on the error and the difference between the corrected and previously published results have been appended to <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>.
+</p>
+
+<p><strong>What is that figure in the top right corner of the page?</strong><br>
+This figure illustrates how we built the mapping model used in this tool. It shows how the flux through the ionosphere is linked to 
+the flux through the magnetosphere. Modified from Figure 4 in <a href="http://onlinelibrary.wiley.com/doi/10.1029/2010JA016148/abstract"><i>Vogt et al.</i> [2011]</a>.<br>
+</p>
+
+
+<p><strong>Who runs this website?</strong><br>
+This website was designed by and is maintained by <a href="http://sites.bu.edu/marissavogt/">Marissa Vogt</a>. Comments, questions, and other correspondence can be sent to her at <a href="mailto:marissav@ucla.edu">marissav@ucla.edu</a>. Special thanks go out to Michael McGraw-Herdeg for design/UI advice; to Bertrand Bonfond, Benjamin Palmaerts, and Andrew Steffl for testing this webform and the IDL mapping code; and to Masafumi Imai for providing IDL code for the JRM09 internal field model.
+</p>
+<p>
+
+<p><a href="http://sites.bu.edu/marissavogt/">Back to Marissa Vogt's homepage</a><br>
+<p><i>Last updated: May 2020</i><br>
+</div>
+
+</body>
+</html>
+
