@@ -1,1 +1,1 @@
-# jupiter-auroral-mapping
+# jupiter-auroral-mapping-webform
