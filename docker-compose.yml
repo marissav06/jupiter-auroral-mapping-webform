@@ -1,0 +1,37 @@
+version: '3.1'
+
+services:
+
+  phpbin:
+    build: .
+    environment:
+      EFS_DIRECTORY_PATH: /uploads
+      EFS_DIRECTORY_ALIAS: /var/www/html/dbin/jupiter-auroral-mapping/data
+    volumes:
+      - ./:/var/www/html/dbin/jupiter-auroral-mapping/
+      - ./uploads/:/uploads/
+      - ./local-env/:/local-env/
+    entrypoint: /local-env/local-entrypoint.sh
+    command: ["php-fpm"]
+
+  sp:
+    image: bostonuniversity/apache-php-fpm:0.4.3
+    environment:
+      sp_idp: https://shib-test.bu.edu/idp/shibboleth
+      sp_sp: https://phpbin-apps-nonprod.bu.edu/shibboleth-sp
+      SP_HANDLER_URL: /dbin/jupiter-auroral-mapping/Shibboleth.sso
+    ports:
+      - 443:443
+    volumes:
+      - ./:/var/www/html/dbin/jupiter-auroral-mapping/:ro
+      - ./secrets/:/run/secrets/
+    depends_on:
+      - mysql_app
+
+  mysql_app:
+    image: bitnami/mysql:5.7-debian-9
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: phpbin_jupiter-auroral-mapping
+    volumes:
+      - ./sql-dumps/app/:/docker-entrypoint-initdb.d/

@@ -1,0 +1,9 @@
+.dockerignore
+Dockerfile
+docker-compose*.yml
+README.md
+buildspec.yml
+/local-env
+/secrets
+/sql-dumps
+/uploads

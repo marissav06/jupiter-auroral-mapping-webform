@@ -1,0 +1,51 @@
+# This is the buildspec used by CodeBuild to generate the image
+#
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      
+      # Retrieve GitHub token value and owner's username from SecretsManager
+      - docker pull fr3nd/jq
+      - GITHUB_TOKEN_OWNER=`aws secretsmanager get-secret-value --secret-id $GITHUB_CREDENTIALS_SECRET --query SecretString | docker run -i --rm fr3nd/jq --raw-output . | docker run -i --rm fr3nd/jq -r .username`
+      - GITHUB_TOKEN_VALUE=`aws secretsmanager get-secret-value --secret-id $GITHUB_CREDENTIALS_SECRET --query SecretString | docker run -i --rm fr3nd/jq --raw-output . | docker run -i --rm fr3nd/jq --arg token_key_name $GITHUB_SECRET_KEY_NAME  -r '.[$token_key_name]'`
+
+      # Authenticate with DockerHub
+      - DOCKERHUB_USERNAME=`aws secretsmanager get-secret-value --secret-id $DOCKERHUB_CREDENTIALS_SECRET --query SecretString | docker run -i --rm fr3nd/jq --raw-output . | docker run -i --rm fr3nd/jq -r .username`
+      - DOCKERHUB_PASSWORD=`aws secretsmanager get-secret-value --secret-id $DOCKERHUB_CREDENTIALS_SECRET --query SecretString | docker run -i --rm fr3nd/jq --raw-output . | docker run -i --rm fr3nd/jq -r .password`
+      - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+
+      # Authenticate with ECR
+      - $(aws ecr get-login --no-include-email )
+
+      # Construct image name and tag
+      - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+      - IMAGEURI="${REPOSITORY_URI}:${TAG}"
+
+  build:
+    commands:
+      # Build submodule dependencies
+      - |
+        echo "[url \"https://${GITHUB_TOKEN_OWNER}:${GITHUB_TOKEN_VALUE}@github.com/\"]
+          insteadOf = git@github.com:
+        " > ~/.gitconfig
+      - git init
+      - git add .
+      - git rm -rf .
+      - git remote add origin $GITHUB_REPO
+      - git fetch
+      - git checkout -t origin/$GITHUB_BRANCH
+      - git submodule init
+      - git submodule update --recursive
+
+      # Build image
+      - docker build --tag "$IMAGEURI" .
+
+  post_build:
+    commands:
+      - docker push "$IMAGEURI"
+      - docker tag "$IMAGEURI" "${REPOSITORY_URI}:latest"
+      - docker push "${REPOSITORY_URI}:latest"
+      - printf '[{"name":"phpbin", "imageUri":"%s"}]' "$IMAGEURI" > build.json
+artifacts:
+  files: build.json

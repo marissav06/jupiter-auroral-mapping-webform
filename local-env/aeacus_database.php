@@ -1,0 +1,5 @@
+<?php
+define('PRIVILEGEMANAGER_DATABASE_HOST', 'mysql_aeacus:3306');
+define('PRIVILEGEMANAGER_DATABASE_USER', 'root');
+define('PRIVILEGEMANAGER_DATABASE_PASSWORD', 'password');
+define('PRIVILEGEMANAGER_DATABASE_NAME', 'lib_aeacus');
