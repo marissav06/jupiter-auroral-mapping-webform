@@ -65,7 +65,7 @@ $message .= "<p>Please send any comments or questions to mvogt@bu.edu";
 // Send
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$headers .= 'From: marissav@ucla.edu <marissav@ucla.edu>' . "\r\n";
+$headers .= 'From: mvogt@bu.edu <mvogt@bu.edu>' . "\r\n";
 $headers .= 'Reply-To: mvogt@bu.edu' . "\r\n";
 $headers .= 'X-Mailer: PHP/' . phpversion();
 
