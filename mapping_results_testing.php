@@ -2428,14 +2428,14 @@ if (isset($_POST['send_updates'])) {
     $message .= "<p>User has requested to receive e-mail updates about the mapping tool.";
     $message .= "<p>";
 }
-$message .= "<p>Please send additional comments or questions to marissav@ucla.edu";
+$message .= "<p>Please send additional comments or questions to mvogt@bu.edu";
 
 
 // Send
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-$headers .= 'From: marissav@ucla.edu <marissav@ucla.edu>' . "\r\n";
-$headers .= 'Reply-To: marissav@ucla.edu' . "\r\n";
+$headers .= 'From: mvogt@bu.edu <mvogt@bu.edu>' . "\r\n";
+$headers .= 'Reply-To: mvogt@bu.edu' . "\r\n";
 $headers .= 'X-Mailer: PHP/' . phpversion();
 
 $message .= "<p>";
@@ -2451,7 +2451,7 @@ $message .= "Vogt, Marissa F., Margaret G. Kivelson, Krishan K. Khurana, Raymond
 $message .= "and<br>";
 $message .= "Vogt, Marissa F., Emma J. Bunce, Margaret G. Kivelson, Krishan K. Khurana, Raymond J. Walker, Aikaterini Radioti, Bertrand Bonfond, and Denis Grodent (2015), Magnetosphere-ionosphere mapping at Jupiter: Quantifying the effects of using different internal field models, J. Geophys. Res. Space Physics, doi:10.1002/2014JA020729, in press.<p>";
 
-    mail('marissav@ucla.edu', $subject, $message, $headers);
+    mail('mvogt@bu.edu', $subject, $message, $headers);
     if ($_POST['email_contact'] != '' and isset($_POST['send_results']))
     {
         mail($_POST['email_contact'], $subject, $message, $headers);
